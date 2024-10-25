@@ -1,0 +1,23 @@
+{
+  "extends": ["next/core-web-vitals", "next/typescript", "prettier"],
+  "plugins": ["unused-imports"],
+  "rules": {
+    // Automatically remove unused imports
+    "unused-imports/no-unused-imports": "error",
+    // Suppress warnings for unused variables that are prefixed with _
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": "off", // Disable default unused-vars check to avoid redundancy
+    "@typescript-eslint/no-explicit-any": "warn", // Warn on `any` types but don’t fail the build
+    "react/no-unescaped-entities": "warn", // Set warnings for unescaped entities in JSX
+    "@typescript-eslint/no-empty-object-type": "warn", // Warn on empty object types but don’t fail
+    "@typescript-eslint/no-require-imports": "warn" // Warn on `require()` but don’t fail
+  }
+}
